@@ -1,4 +1,5 @@
 # nguong toi thieu
+
 import collections
 
 s=input()

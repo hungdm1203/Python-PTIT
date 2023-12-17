@@ -1,26 +1,21 @@
 # kiem tra chia het
 
-
-def test(i,n):
-    for j in range(2,n+1):
-        if i%j==0:
-            return 0
-    return 1
-
-
-
 while True:
     line = input()
-    if line[:2] == '-1':
+    if len(line)==2:
         break
     a, b = map(int, line.split())
     n = int(input())
 
+    arr=[1]*(b+1)
+    for i in range(a,len(arr)):
+        if arr[i]!=0:
+            for j in range(2,n+1):
+                if i%j==0: 
+                    arr[i]=0
+                    break
+        else:
+            for j in range(i,len(arr),i):
+                arr[j]=0
 
-    dem=0
-    for i in range(a,b+1):
-        if test(i,n)==1:
-            dem+=1
-    print(dem)
-
-
+    print(sum(arr[a:]))
